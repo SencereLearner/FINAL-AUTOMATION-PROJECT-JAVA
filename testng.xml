@@ -1,0 +1,55 @@
+<!--
+USED IN THIS FRAMEWORK:
+1. POM Framework using By class and Page Factory (@FindBy) approaches
+2. TestNG Framework inluding TestNG Parameters, listeners, TestNG report and Data Providers deriving data from Excel Sheet
+3. Data Parameterization using .properties file
+4. Logger
+5. Java Reflections for ease of classes and methods recognition
+6. Extent report
+7. Maven
+8. Parallel Test Execution
+9. Java Script Integration
+-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG runner" parallel="classes" thread-count="3">
+
+    <listeners>
+        <listener class-name="POM.ObjectRepository.TestNGListeners"/>
+        <listener class-name="Resources.ExtentReporterNG"/>
+    </listeners>
+
+    <!--FOR SEQUENTIAL TESTS NEED TO USE MULTIPLE <test name = > </test> (only have 2 in this case)-->
+    <test name="InsureonTest">
+        <classes>
+            <class name="POM.TestCases.InsureonTest"/>
+        </classes>
+    </test>
+
+    <test name="VKTest">
+        <parameter name="urlVK" value="https://fb.com"/>
+        <classes>
+            <class name="POM.TestCases.VKTest"/>
+        </classes>
+    </test>
+
+    <test name="InstagramTest">
+<!--        <packages>-->
+<!--            <package name="POM.ObjectRepository.Pages.InstagramTest"/>-->
+<!--        </packages>-->
+        <classes>
+            <class name="POM.TestCases.InstagramTest"/>
+        </classes>
+    </test>
+
+
+<!--FOR PARALLEL TESTS use one <test name = > </test> and inside list all the tests (only have 2 in this case)-->
+<!--    <test name="Parallel Test">-->
+<!--        <classes>-->
+<!--            <class name="POM.TestCases.InsureonTest"/>-->
+<!--            <class name="POM.TestCases.VKTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+</suite>
