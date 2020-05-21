@@ -63,6 +63,7 @@ public class InstagramTest extends BaseClass {
   @AfterTest
   public void after () {
     try {
+      System.out.println();
     }
     finally {
       _webdriver.close();
@@ -70,5 +71,5 @@ public class InstagramTest extends BaseClass {
     }
   }
 
-
+//could add BDD as well or create a new project
 }
