@@ -70,6 +70,4 @@ public class InstagramTest extends BaseClass {
       System.out.println("The browser has been successfully closed");
     }
   }
-
-//could add BDD as well or create a new project
 }
